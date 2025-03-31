@@ -1,0 +1,23 @@
+.block {
+  display: flex;
+  align-items: center;
+  height: 100px;
+
+}
+
+.block_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 15px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.name {
+  margin: 10px;
+}

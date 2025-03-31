@@ -1,0 +1,21 @@
+.movieBlock {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.movieBlockText {
+  width: 60%;
+  font-size: 32PX;
+  color: white;
+}
+
+.movieBlockPrew {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  overflow-wrap: normal;
+}

@@ -1,0 +1,16 @@
+.movieCard {
+  background: #F4811A;
+  padding: 15px;
+  width: 23%;
+}
+
+.movieCardImg {
+  width: 100%;
+  height: 240px;
+}
+
+.movieCardInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
