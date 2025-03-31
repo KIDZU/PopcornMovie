@@ -5,7 +5,7 @@ import { Container } from '../../Components/Container/Container.jsx'
 export function Main() {
   return (
     <Container>
-      <h4>Новинки</h4>
+      <h4>Популярное</h4>
       <MovieCards />
     </Container>
   )
