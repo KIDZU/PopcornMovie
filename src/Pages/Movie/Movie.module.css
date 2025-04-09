@@ -1,7 +1,7 @@
 .movieBlock {
   display: flex;
   justify-content: space-between;
-
+  margin-bottom: 25px;
 }
 
 .movieBlockText {
@@ -18,4 +18,25 @@
   font-size: 20px;
   color: white;
   overflow-wrap: normal;
+}
+
+.movieTitle {
+  text-align: center;
+}
+
+.personsListContainer {
+  background: white;
+  padding: 15px;
+}
+
+.personsListContainer h3 {
+  text-align: center;
+  font-size: 32px;
+}
+
+.personsList {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }

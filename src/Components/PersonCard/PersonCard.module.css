@@ -1,0 +1,17 @@
+.blockPerson {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  background: #F4811A;
+  padding: 15px;
+
+}
+
+.blockPerson img {
+  width: 100px;
+
+}
+
+.personName {
+  font-size: 25px;
+}

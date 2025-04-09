@@ -20,7 +20,7 @@ export const Navigation = () => {
             <NavLink to="/"> Авиша</NavLink>
           </li>
           <li>
-            <NavLink to="/"> Контакты</NavLink>
+            <NavLink to="/contacs"> Контакты</NavLink>
           </li>
           <li>
             <NavLink to="/"> Категории</NavLink>

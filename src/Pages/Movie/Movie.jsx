@@ -1,14 +1,12 @@
 import style from './Movie.module.css'
 import { Container } from '../../Components/Container/Container.jsx'
 import { useParams } from 'react-router-dom'
-import { createStringQuery } from '../../helpers/createStringQuery.js'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import { X_API_KEY } from '../../constants.js'
 import { Image } from 'antd'
+import { getMovieData } from '../../api/getMovieData.js'
+import { PersonCard } from '../../Components/PersonCard/PersonCard.jsx'
 
-const selectedFields = ['name', 'poster', 'rating', 'id', 'description']
-const selectedFieldsString = createStringQuery(selectedFields, 'selectedFields')
+
 
 const initState = {
   name: '',
@@ -16,24 +14,19 @@ const initState = {
   rating: { imdb: 0 },
   id: 0,
   description: '',
+  persons:[]
 }
 
 export const Movie = () => {
   const [movieData, setMovieData] = useState(initState)
   const { id } = useParams()
 
-  const getData = async () => {
-    const { data } = await axios(
-      `https://api.kinopoisk.dev/v1.4/movie/${id}?${selectedFieldsString}`,
-      {
-        headers: { 'X-API-KEY': X_API_KEY },
-      },
-    )
-    setMovieData(data)
-  }
+
 
   useEffect(() => {
-    getData()
+    getMovieData(id).then((data)=>{
+      setMovieData(data)
+    })
   }, [])
 
   const {
@@ -41,7 +34,38 @@ export const Movie = () => {
     rating: { imdb },
     poster: { url },
     description,
+    persons
   } = movieData
+
+  const personsByProf = {}
+persons.forEach((person)=>{
+  const key = person.enProfession
+if (personsByProf[key]){
+  personsByProf[key].push(person)
+}
+else{
+  personsByProf[key] = [person]
+}
+})
+
+function getRenderPersonsByProf(){
+  return Object.keys(personsByProf).map((key)=>{
+    const {profession, enProfession} = personsByProf[key][0]
+    const title = profession ?? enProfession
+    return (
+      <div>
+        <h4>
+          {title}
+        </h4>
+        <div>
+          {personsByProf[key].map((personData)=>( 
+          <PersonCard personData={personData} key={personData.id} />
+  ))}
+        </div>
+      </div>
+    )
+  })
+}
 
   return (
     <Container>
@@ -53,10 +77,21 @@ export const Movie = () => {
             className={style.movieBlockIcon}
             alt="movieIcon"
           />
-          <p>{name}</p>
         </div>
-        <p className={style.movieBlockText}>{description}</p>
+        <div className={style.movieBlockText}>
+
+          <p className={style.movieTitle}>{name}</p>
+        <div className={style.tableInfoMovie}>
+              <p>Рейтинг: {imdb ? imdb : "недостаточно оценок"}</p>
+        </div>
+          <p>{description}</p>
+        </div>
       </div>
+      
+      <div className={style.personsListContainer}>
+      <h3>Актёрский состав</h3>
+     <div className={style.personsList}>{getRenderPersonsByProf()}</div>
+     </div>
     </Container>
   )
 }

@@ -1,0 +1,38 @@
+.person {
+  display: flex;
+  gap: 5%;
+}
+
+.photo {
+  width: 400px;
+}
+
+.personBlock {
+  width: 55%;
+}
+
+.personInfoBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  text-align: center;
+}
+
+.moviesBlock {
+  text-align: center;
+}
+
+.moviesContainerBlockInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+
+
+.movieCards {
+  width: 23%;
+}
