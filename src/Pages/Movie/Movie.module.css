@@ -35,8 +35,11 @@
 }
 
 .personsList {
-  padding: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  padding: 15px;
+}
+
+.personCardList {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }

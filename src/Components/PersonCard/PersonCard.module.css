@@ -4,12 +4,12 @@
   align-items: center;
   background: #F4811A;
   padding: 15px;
-
+  width: 30%;
 }
 
 .blockPerson img {
-  width: 100px;
-
+  width: 150px;
+  height: 200px;
 }
 
 .personName {
